@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=TestHojaCalculo
+comment0.text=\r\n\ \ Clase\ con\ c\u00F3digo\ para\ probar\ el\ resto\ de\ clases\r\n\ \r\n\ @author\ -\ \r\n\ \ \r\n
+comment1.params=
+comment1.target=TestHojaCalculo()
+comment1.text=\r\n\ Constructor\ \ \r\n
+comment2.params=
+comment2.target=void\ test1()
+comment2.text=\r\n\ Define\ y\ crea\ todos\ los\ objetos\ necesarios\ para\ obtener\r\n\ en\ pantalla\ la\ hoja\ de\ c\u00E1lculo\ indicada\ en\ la\ figura\ 1\r\n\ incluyendo\ la\ hoja\ duplicada\r\n\ La\ fila4\ que\ no\ se\ podr\u00E1\ guardar\ puedes\ crearla\ con\ el\ primer\ constructor\ \ \r\n\ de\ fila\ \ \r\n
+comment3.params=
+comment3.target=void\ test2()
+comment3.text=\r\n\ Define\ y\ crea\ todos\ los\ objetos\ necesarios\ para\ obtener\r\n\ en\ pantalla\ la\ hoja\ de\ c\u00E1lculo\ indicada\ en\ la\ figura\ 2\ \r\n\ incluyendo\ la\ hoja\ duplicada\r\n\ \ \r\n
+comment4.params=
+comment4.target=void\ test3()
+comment4.text=\r\n\ Define\ y\ crea\ todos\ los\ objetos\ necesarios\ para\ obtener\r\n\ en\ pantalla\ la\ hoja\ de\ c\u00E1lculo\ indicada\ en\ la\ figura\ 3\r\n\ incluyendo\ la\ hoja\ duplicada\r\n\ \ \r\n
+numComments=5
