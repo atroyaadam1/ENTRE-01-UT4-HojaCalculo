@@ -25,6 +25,7 @@ public class Fila
         gastos = 0;
 
     }
+
     /**
      * Constructor  
      */
@@ -82,8 +83,7 @@ public class Fila
      * 
      */
     public Fila duplicar() {
-        return fecha.obtenerCopia();
-
+        return new Fila(this.id,this.fecha,this.ingresos,this.gastos);
     }
 
     /**
@@ -91,9 +91,13 @@ public class Fila
      * (leer enunciado)
      */
     public String toString() {
-        return null;
+
+        // System.out.format("");
+        // Fila columnaCalculada = System.out.printf("\n%8s%d:", "Fila1" , "\n%15s%d:" 
+            // , "FECHA : " ,fecha ,"%15.2f%d","INGRESOS", ingresos + 
+                // "%15.2f%d","GASTOS:" , gastos); 
+
+        return "";
 
     }
-
-
 }
