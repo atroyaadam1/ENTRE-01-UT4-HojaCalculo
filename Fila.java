@@ -91,13 +91,8 @@ public class Fila
      * (leer enunciado)
      */
     public String toString() {
-
-        // System.out.format("");
-        // Fila columnaCalculada = System.out.printf("\n%8s%d:", "Fila1" , "\n%15s%d:" 
-            // , "FECHA : " ,fecha ,"%15.2f%d","INGRESOS", ingresos + 
-                // "%15.2f%d","GASTOS:" , gastos); 
-
-        return "";
+        return String.format("\n%8s%d:","fila1" ,"\n%15s%d:" ,"fecha" + fecha , "%15.2f%d" + "INGRESOS" +
+            ingresos , "%15.2f%d" + "GASTOS" + gastos , "BENEFICIO" + getBeneficio());
 
     }
 }
