@@ -66,19 +66,14 @@ public class HojaCalculo
      * (dependerá de cuántas filas estén a null)
      */
     public int getNumeroFilas() {
-        int contador = 1;
-        contador++;
-        if (fila1 == null){
-            System.out.println("No se realiza el contador"); 
-        } else {
+        int contador = 0;
+
+        if (fila1 != null){
             contador++;
-        } if (fila2 == null){
-            System.out.println("No se realiza el contador");
-        } else {
+        }
+        if (fila2 != null){
             contador++;
-        }  if (fila3 == null){
-            System.out.println("No se realiza el contador");
-        } else {
+        }  if (fila3 != null){
             contador++;
         }
         return contador;
@@ -106,29 +101,19 @@ public class HojaCalculo
      * si se añade como primera, segunda o tercera fila (no han de quedar huecos)
      */
     public void addFila(Fila fila) {
-        if (getNumeroFilas() == 3) {
-            System.out.println("FilaX, no se puede añadir en HOJAX");
-        }   else {
-            if (getNumeroFilas() == 2) {
-                fila3 = fila;
-            }else {
-                System.out.println(fila.getId() + " No se puede añadir en " + 
-                getNombre());
-            }
-            if (getNumeroFilas() == 1) {
-                fila2 = fila;
-            } else {
-                System.out.println(fila.getId() + " No se puede añadir en " + 
-                getNombre());
-            }
-            if (getNumeroFilas() == 0) {
-                fila1 = fila;
-            } else {
-                System.out.println(fila.getId() + " No se puede añadir en " + 
-                getNombre());
-            }
+        if (hojaCompleta()) {
+            System.out.println(fila.getId() + " no se puede añadir en " + this.nombre);
         }
 
+        if (getNumeroFilas() == 2) {
+            fila3 = fila;
+        }
+        if (getNumeroFilas() == 1) {
+            fila2 = fila;
+        }
+        if (getNumeroFilas() == 0) {
+            fila1 = fila;
+        }
     }
 
     /**
@@ -137,8 +122,7 @@ public class HojaCalculo
      * (evita repetir código)
      */
     public void addFila(String id, Fecha fecha, double ingresos, double gastos) {
-        Fila fila = new Fila(id, fecha, ingresos, gastos);
-        addFila(fila);
+        addFila(new Fila(id, fecha, ingresos, gastos));
     }
 
     /**
@@ -146,11 +130,13 @@ public class HojaCalculo
      * todas las filas que incluye la hoja
      */
     public double getTotalIngresos() {
-
         double totalIngresos = 0;
-        totalIngresos += fila1.getIngresos();
-        totalIngresos += fila2.getIngresos();
-        totalIngresos += fila3.getIngresos();
+        switch (this.getNumeroFilas()) {
+            case 3: totalIngresos += fila3.getIngresos();
+            case 2: totalIngresos+= fila2.getIngresos();
+            case 1: totalIngresos += fila1.getIngresos(); 
+            break;
+        }
         return totalIngresos;
     }
 
@@ -159,12 +145,13 @@ public class HojaCalculo
      * entre todas las filas que incluye la hoja
      */
     public double getTotalGastos() {
-        double totalGastos = 0;
-        totalGastos += fila1.getGastos();
-        totalGastos += fila2.getGastos();
-        totalGastos += fila3.getGastos();
-        return totalGastos;
-
+        int totalGastos = 0;
+        switch (this.getNumeroFilas()) {
+            case 3: totalGastos += fila3.getGastos();
+            case 2: totalGastos += fila2.getGastos();
+            case 1: totalGastos += fila1.getGastos(); 
+            break;
+        } return totalGastos;
     }
 
     /**
@@ -172,11 +159,14 @@ public class HojaCalculo
      * entre todas las filas que incluye la hoja
      */
     public double getBeneficio() {
-        double totalBeneficio = 0;
-        totalBeneficio += fila1.getBeneficio();
-        totalBeneficio += fila2.getBeneficio();
-        totalBeneficio += fila3.getBeneficio();
-        return totalBeneficio;
+        double total = 0;
+        switch (this.getNumeroFilas()) {
+            case 3: total += fila3.getBeneficio();
+            case 2: total += fila2.getBeneficio();
+            case 1: total += fila1.getBeneficio(); 
+            break;
+        }
+        return total;
 
     }
 
@@ -186,12 +176,23 @@ public class HojaCalculo
      */
     public String toString() {
 
-        return String.format("%-8s\n" + 
-            fila1.toString() + "\n" +  fila2.toString() + "\n" +
-            fila3.toString() + "\n-------------------------------------------------\n" +
-            "%40.2f€ %15.2f€ %+15.2f€",getNombre() ,"FECHA", "INGRESOS",
-            "GASTOS","BENEFICIO",
-            getTotalIngresos(), getTotalGastos(),getBeneficio());
+        String str = String.format("%s \n%8s%15s%15s%15s%15s", this.nombre, "", "FECHA",
+                "INGRESOS", "GASTOS", "BENEFICIO");
+        String varFila1 = "";
+        String varFila2 = "";
+        String varFila3 = "";
+
+        switch (getNumeroFilas()) {
+            case 3: varFila3 += "\n" + this.fila3.toString();
+            case 2: varFila2 += "\n" + this.fila2.toString();
+            case 1: varFila1 += "\n" + this.fila1.toString(); 
+            break;
+        }
+        str += varFila1 + varFila2 + varFila3;
+        str += "\n---------------------------------------------------------------------------";
+        str += "\n" + String.format("%23s%14.2f€%14.2f€%14.2f€", "", this.getTotalIngresos(),
+            this.getTotalGastos(), this.getBeneficio());
+        return str;
 
     }
 

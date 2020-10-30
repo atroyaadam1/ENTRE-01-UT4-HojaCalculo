@@ -2,7 +2,7 @@
 /**
  *  Modela una fecha
  *  
- *  @author - Anthonny Troya
+ *  @author - Anthonny Troya Arevalo
  */
 public class Fecha
 {
