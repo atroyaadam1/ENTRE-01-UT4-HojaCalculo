@@ -5,7 +5,7 @@
  *  En cada fila la empresa "apunta" los ingresos y gastos en 
  *  una determinada fecha
  * 
- * @author -   
+ * @author - Anthonny Troya Arevalo
  *  
  */
 public class HojaCalculo
@@ -24,8 +24,8 @@ public class HojaCalculo
     public HojaCalculo(String nombre)    {
         this.nombre = nombre;
         this.fila1 = null;
-        this.fila1 = null;
-        this.fila1 = null;
+        this.fila2 = null;
+        this.fila3 = null;
 
     }
 
@@ -66,8 +66,22 @@ public class HojaCalculo
      * (dependerá de cuántas filas estén a null)
      */
     public int getNumeroFilas() {
-        
-        return 0;
+        int contador = 1;
+        contador++;
+        if (fila1 == null){
+            System.out.println("No se realiza el contador"); 
+        } else {
+            contador++;
+        } if (fila2 == null){
+            System.out.println("No se realiza el contador");
+        } else {
+            contador++;
+        }  if (fila3 == null){
+            System.out.println("No se realiza el contador");
+        } else {
+            contador++;
+        }
+        return contador;
 
     }
 
@@ -76,7 +90,11 @@ public class HojaCalculo
      * (tiene exactamente 3 filas)
      */
     public boolean hojaCompleta() {
-        return true;
+        if (contador == 3) {
+            return true;
+        }   else {
+            return false;
+        }
 
     }
 
@@ -87,7 +105,6 @@ public class HojaCalculo
      * si se añade como primera, segunda o tercera fila (no han de quedar huecos)
      */
     public void addFila(Fila fila) {
-         
 
     }
 
@@ -97,7 +114,6 @@ public class HojaCalculo
      * (evita repetir código)
      */
     public void addFila(String id, Fecha fecha, double ingresos, double gastos) {
-         
 
     }
 
@@ -106,10 +122,8 @@ public class HojaCalculo
      * todas las filas que incluye la hoja
      */
     public double getTotalIngresos() {
-         
 
         return 0;
-
     }
 
     /**
@@ -135,7 +149,7 @@ public class HojaCalculo
      * con el formato exacto que indica el enunciado
      */
     public String toString() {
-         
+
         return null;
 
     }
@@ -146,11 +160,8 @@ public class HojaCalculo
      * Al duplicar la hoja se duplicarán también las filas que contenga
      */
     public HojaCalculo duplicarHoja() {
-        
-        
-        
-       return null;
+
+        return null;
     }
 
-   
 }

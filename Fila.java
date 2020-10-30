@@ -91,8 +91,8 @@ public class Fila
      * (leer enunciado)
      */
     public String toString() {
-        return String.format("\n%8s%d:","fila1" ,"\n%15s%d:" ,"fecha" + fecha , "%15.2f%d" + "INGRESOS" +
-            ingresos , "%15.2f%d" + "GASTOS" + gastos , "BENEFICIO" + getBeneficio());
+        return String.format("\n%8s%d:","fila1" ,"\n%15s%d:" ,"fecha" + fecha , "%15.2%d" + "INGRESOS" +
+            ingresos , "%15.2%d" + "GASTOS" + gastos , "BENEFICIO" + getBeneficio());
 
     }
 }
