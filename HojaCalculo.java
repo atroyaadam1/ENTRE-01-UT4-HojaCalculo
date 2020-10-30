@@ -111,12 +111,21 @@ public class HojaCalculo
         }   else {
             if (getNumeroFilas() == 2) {
                 fila3 = fila;
+            }else {
+                System.out.println(fila.getId() + " No se puede añadir en " + 
+                getNombre());
             }
             if (getNumeroFilas() == 1) {
                 fila2 = fila;
+            } else {
+                System.out.println(fila.getId() + " No se puede añadir en " + 
+                getNombre());
             }
             if (getNumeroFilas() == 0) {
                 fila1 = fila;
+            } else {
+                System.out.println(fila.getId() + " No se puede añadir en " + 
+                getNombre());
             }
         }
 
@@ -177,10 +186,11 @@ public class HojaCalculo
      */
     public String toString() {
 
-        return String.format("%-8s\n %23s %16s %16s %16s\n" + 
+        return String.format("%-8s\n" + 
             fila1.toString() + "\n" +  fila2.toString() + "\n" +
             fila3.toString() + "\n-------------------------------------------------\n" +
-            "%40.2f€ %15.2f€ %+15.2f€",getNombre(),"FECHA", "INGRESOS","GASTOS","BENEFICIO",
+            "%40.2f€ %15.2f€ %+15.2f€",getNombre(),"FECHA", "INGRESOS",
+            "GASTOS","BENEFICIO",
             getTotalIngresos(), getTotalGastos(),getBeneficio());
 
     }

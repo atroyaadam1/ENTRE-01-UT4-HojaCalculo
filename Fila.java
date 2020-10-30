@@ -5,7 +5,7 @@
  *  se anotan la fecha, los ingresos y los gastos correspondientes a un
  *  apunte  contable  de una empresa
  * 
- * @author - 
+ * @author - Anthonny Troya
  *  
  */
 public class Fila
@@ -91,8 +91,13 @@ public class Fila
      * (leer enunciado)
      */
     public String toString() {
-        return String.format("\n%8s%d:","fila1" ,"\n%15s%d:" ,"fecha" + fecha , "%15.2%d" + "INGRESOS" +
-            ingresos , "%15.2%d" + "GASTOS" + gastos , "BENEFICIO" + getBeneficio());
+        if (getBeneficio()<0){
+            return String.format("%8s %15s %15.2f€ %15.2f€ % 15.2f€ **",
+            id, fecha, ingresos, gastos, getBeneficio());
+        }
+        else {
+            return String.format("%8s %15s %15.2f€ %15.2f€ % 15.2f€",id, fecha, ingresos, gastos, getBeneficio());
+        }
 
     }
 }
