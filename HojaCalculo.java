@@ -189,7 +189,7 @@ public class HojaCalculo
         return String.format("%-8s\n" + 
             fila1.toString() + "\n" +  fila2.toString() + "\n" +
             fila3.toString() + "\n-------------------------------------------------\n" +
-            "%40.2f€ %15.2f€ %+15.2f€",getNombre(),"FECHA", "INGRESOS",
+            "%40.2f€ %15.2f€ %+15.2f€",getNombre() ,"FECHA", "INGRESOS",
             "GASTOS","BENEFICIO",
             getTotalIngresos(), getTotalGastos(),getBeneficio());
 
